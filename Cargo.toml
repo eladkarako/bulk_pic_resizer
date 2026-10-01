@@ -1,0 +1,37 @@
+[package]
+authors = ["Elad Karako <eladkarako@gmail.com>"]
+categories = ["command-line-utilities", "image-processing"]
+description = "parallel resize PNG, JPEG, GIF, BMP, TIFF, WebP, ICO files."
+documentation = "https://github.com/eladkarako/bulk_pic_resizer#readme"
+edition = "2024"
+homepage = "https://github.com/eladkarako/bulk_pic_resizer"
+keywords = ["image-optimization", "image-resize", "png", "parallel", "cli"]
+license = "MIT"
+name = "bulk_pic_resizer"
+readme = "README.md"
+repository = "https://github.com/eladkarako/bulk_pic_resizer"
+rust-version = "1.93.0"
+version = "26.10.1"
+
+[dependencies]
+clap = { version = "4.6.7", features = ["derive"] }        # CLI argument parsing with derive macros
+image = "0.25.10"                                          # Image processing and format conversion
+indicatif = "0.18.6"                                       # Progress bars and spinners for CLI
+num_cpus = "1.17.0"                                        # Detect number of available CPU cores
+oxipng = { version = "10.2.1" }                            # PNG image optimization and compression
+png = "0.18.1"                                             # PNG encoding and decoding
+tokio = { version = "1.53.1", features = ["full"] }        # Async runtime with all features enabled
+
+[build-dependencies]
+toml = "1.1.6"                                             # TOML parsing for build scripts
+winres = "0.1.12"                                          # Windows resource file handling (exe metadata, icons, version info)
+
+[profile.release]
+codegen-units = 1                                          # Single unit for better optimization and binary size
+debug = false                                              # Strip debug symbols for smaller binary
+incremental = false                                        # Disable incremental compilation for cleaner builds
+lto = true                                                 # Link-time optimization for better performance
+opt-level = "z"                                            # Maximum optimization for binary size
+panic = "abort"                                            # Replace unwinding with abort (smaller binary, faster panics)
+rpath = false                                              # Don't embed runtime library search paths
+strip = true                                               # Strip all symbols from final binary
