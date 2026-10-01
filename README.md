@@ -9,7 +9,7 @@ the program automatically optimizes PNG files.
 <hr/>
 
 built with <img width="20" src="resources/logos/rust.png" /> Rust.  
-binaries available for multiple OS and CPU architecture.  
+binaries available for multiple OS and CPU architectures.  
 
 ### download (direct URLs - latest release)
 
@@ -44,7 +44,7 @@ binaries available for multiple OS and CPU architecture.
 
 <hr/>
 
-### example 1 - preserve all formats.
+### example 1 - preserve all formats, use each file's own directory.
 
 ```txt
 bulk_pic_resizer
@@ -53,14 +53,14 @@ foo.png bar.bmp D:\hello.tiff "C:\Program Files\world.gif"
 ```
 
 result is 
-- `foo_1.png` (current folder)
-- `bar_1.bmp` (current folder)
+- `foo_1.png` (current directory)
+- `bar_1.bmp` (current directory)
 - `hello_1.bmp` (at `D:\`)
-- `world.gif` (at `C:\Program Files\`)
+- `world_1.gif` (at `C:\Program Files\`)
 
 <hr/>
 
-### example 2 - convert all to a specific format
+### example 2 - convert all to a specific format (PNG)
 
 ```txt
 bulk_pic_resizer
@@ -77,7 +77,7 @@ result is
 
 <hr/>
 
-### example 3 - writing to new folder (helps to preserve filenames)
+### example 3 - writing to a new directory, relative to each file's directory (helps to preserve original filenames)
 
 ```txt
 bulk_pic_resizer
@@ -137,7 +137,7 @@ this is by design
 
 - `--size <SIZE>` - mandatory - WIDTHxHEIGHT - will resize to exact size, no aspect-ration preservation. 
 - one or more files to process - mandatory. 
-- `--output-dir <DIR>` - optional - relative will create/use folder for each file, absolute will collect all processed files there.
+- `--output-dir <DIR>` - optional - relative will create/use directory for each file, absolute will collect all processed files there.
 - `--format <FORMAT>` - optional - force format to all files (png, jpg, gif, etc..) - example `--format webp`.
 
 <hr/>
