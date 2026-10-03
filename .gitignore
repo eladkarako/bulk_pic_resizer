@@ -8,4 +8,4 @@
 
 /target/
 
-minified__*
+*_minified_*

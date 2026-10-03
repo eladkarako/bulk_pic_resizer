@@ -27,28 +27,36 @@ goto MAIN
   )
 
   title %TARGET_NAME%
-  start "" /MAX /ABOVENORMAL "7z.exe" a -tzip -y -ssp -sse -ssw -mmt4 -mx9 -mm=Deflate -mem=ZipCrypto -w"%CD%" -x!"%TARGET_NAME%.zip" "%TARGET_NAME%.zip" "%FULL_PATH%"
+  start "" /MIN /ABOVENORMAL "7z.exe" a -tzip -y -ssp -sse -ssw -mmt4 -mx9 -mm=Deflate -mem=ZipCrypto -w"%CD%" -x!"%TARGET_NAME%.zip" "%TARGET_NAME%.zip" "%FULL_PATH%"
   endlocal
   goto :eof
 ::------------------------------------------------
 
 
 
+
+
 :MAIN
 for %%x in ( 
+x86_64-pc-windows-msvc
+i686-pc-windows-msvc
+
+x86_64-linux-android
+i686-linux-android
 aarch64-linux-android
+armv7-linux-androideabi
+
 aarch64-unknown-linux-gnu
 aarch64-unknown-linux-musl
-armv7-linux-androideabi
-i686-linux-android
-i686-pc-windows-msvc
+x86_64-unknown-linux-gnu
+x86_64-unknown-linux-musl
+
+armv7-unknown-linux-gnueabihf
+armv7-unknown-linux-musleabihf
+
 powerpc64-unknown-linux-gnu
 powerpc64le-unknown-linux-gnu
 powerpc-unknown-linux-gnu
-x86_64-linux-android
-x86_64-pc-windows-msvc
-x86_64-unknown-linux-gnu
-x86_64-unknown-linux-musl
 ) do ( 
   call :METHOD "%%x"
 )

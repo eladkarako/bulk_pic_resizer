@@ -26,3 +26,7 @@ trailing_comma = "Never"
 # Keep comments formatted where possible.
 wrap_comments = true
 comment_width = 80
+
+ignore = [
+    ".cargo/config.toml",
+]
