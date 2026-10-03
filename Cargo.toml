@@ -11,7 +11,7 @@ name = "bulk_pic_resizer"
 readme = "README.md"
 repository = "https://github.com/eladkarako/bulk_pic_resizer"
 rust-version = "1.93.0"
-version = "26.10.1"
+version = "26.10.3"
 
 [dependencies]
 clap = { version = "4.6.7", features = ["derive"] }        # CLI argument parsing with derive macros
